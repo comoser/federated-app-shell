@@ -1,20 +1,14 @@
 import React from "react";
-import { HashRouter } from "react-router-dom";
-
-const AppShell = React.lazy(() => import("appshell/StandardLayout"));
-
-import {Photos} from './Photos';
+import { BrowserRouter, Switch } from "react-router-dom";
+import { routes } from './routes';
 
 function App() {
   return (
-    <HashRouter>
-      <React.Suspense fallback={null}>
-        <AppShell title="Property Details Page">
-          <h3>Property Details</h3>
-          <Photos />
-        </AppShell>
-      </React.Suspense>
-    </HashRouter>
+    <BrowserRouter>
+      <Switch>
+        {routes}
+      </Switch>
+    </BrowserRouter>
   );
 }
 

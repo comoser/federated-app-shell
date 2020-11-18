@@ -1,17 +1,15 @@
 import React from 'react';
-
-const AppShell = React.lazy(() => import('appshell/StandardLayout'));
-
-import {Results} from './Results';
+import { BrowserRouter, Switch } from "react-router-dom";
+import { routes } from './routes';
 
 function App() {
-    return (
-        <React.Suspense fallback={null}>
-            <AppShell title="Search Page">
-                <Results />
-            </AppShell>
-        </React.Suspense>
-    );
+  return (
+    <BrowserRouter>
+      <Switch>
+        {routes}
+      </Switch>
+    </BrowserRouter>
+  );
 }
 
 export default App;

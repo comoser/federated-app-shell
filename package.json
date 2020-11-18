@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "postinstall": "(cd appshell && npm install); (cd property && npm install); (cd search && npm install); (cd favorites && npm install)",
+    "prestart": "concurrently \"cd appshell; rimraf dist;\" \"cd property; rimraf dist;\" \"cd search; rimraf dist;\" \"cd favorites; rimraf dist;\"",
     "start": "concurrently \"cd appshell; npm start;\" \"cd property; npm start;\" \"cd search; npm start;\" \"cd favorites; npm start;\"",
     "docker:pull": "docker pull scriptedalchemy/mf-dashboard",
     "docker:run": "docker run -p 3000:3000 --sig-proxy=true scriptedalchemy/mf-dashboard:latest",
@@ -10,6 +11,7 @@
     "docker:demo": "npm run docker:pull && npm run docker:run"
   },
   "devDependencies": {
-    "concurrently": "^5.1.0"
+    "concurrently": "^5.1.0",
+    "rimraf": "3.0.2"
   }
 }

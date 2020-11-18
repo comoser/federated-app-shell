@@ -6,7 +6,7 @@
   "scripts": {
     "start": "concurrently \"webpack --watch\" \"npm run serve\"",
     "build": "webpack --mode production",
-    "serve": "serve dist -p 3003"
+    "serve": "serve dist -s -p 3003"
   },
   "dependencies": {
     "@babel/core": "^7.8.6",
@@ -14,15 +14,14 @@
     "@vrbo/react-event-tracking": "^1.1.0",
     "babel-loader": "^8.0.6",
     "classnames": "^2.2.6",
-    "connected-react-router": "^6.8.0",
     "cookie": "^0.4.0",
+    "react-router-dom": "^5.1.2",
     "html-webpack-plugin": "git://github.com/ScriptedAlchemy/html-webpack-plugin#master",
     "lodash.debounce": "^4.0.8",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-helmet-async": "^1.0.5",
     "react-transition-group": "^4.3.0",
-    "redux": "^4.0.5",
     "serve": "^11.3.0",
     "url": "^0.11.0",
     "url-loader": "^4.1.0",

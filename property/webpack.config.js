@@ -128,11 +128,8 @@ module.exports = {
             name: 'property',
             library: {type: 'var', name: 'property'},
             filename: 'remoteEntry.js',
-            remotes: {
-                appshell: 'appshell'
-            },
             exposes: {
-                './Property': './src/App'
+                './PropertyRoutes': './src/routes'
             },
             shared: ['react', 'react-dom', 'react-router-dom'],
         }),

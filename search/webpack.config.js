@@ -89,13 +89,10 @@ module.exports = {
             name: 'search',
             library: {type: 'var', name: 'search'},
             filename: 'remoteEntry.js',
-            remotes: {
-                appshell: 'appshell',
-            },
             exposes: {
-                './Search': './src/App'
+                './SearchRoutes': './src/routes'
             },
-            shared: ['react', 'react-dom'],
+            shared: ['react', 'react-dom', 'react-router-dom'],
         }),
         new HtmlWebpackPlugin({
             hash: true,

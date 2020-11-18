@@ -126,9 +126,10 @@ module.exports = {
             name: 'appshell',
             library: {type: 'var', name: 'appshell'},
             filename: 'remoteEntry.js',
-            remotes: {},
-            exposes: {
-                './StandardLayout': './src/StandardLayout',
+            remotes: {
+                favorites: 'favorites',
+                property: 'property',
+                search: 'search'
             },
             shared: ['react', 'react-dom', 'react-router-dom'],
         }),
