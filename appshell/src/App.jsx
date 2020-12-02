@@ -3,6 +3,7 @@ import {BrowserRouter, Route, Link, Switch} from 'react-router-dom';
 import {Header} from './Header';
 import {Footer} from './Footer';
 import './App.less';
+import utilTwo, { utilOne } from 'favorites/Utils';
 
 const FavoriteRoutes = React.lazy(() => import("favorites/FavoriteRoutes"));
 const Photos = React.lazy(() => import("property/PropertyRoutes"));
@@ -13,6 +14,8 @@ function App() {
         <BrowserRouter>
             <div className="appshell-container">
                 <Header />
+                {utilOne()}
+                {utilTwo()}
                 <div>
                     <p><Link to="/">go to Dashboard</Link></p>
                     <p><Link to="/cenas">go to Cenas</Link></p>

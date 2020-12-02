@@ -89,7 +89,8 @@ module.exports = {
             library: {type: 'var', name: 'favorites'},
             filename: 'remoteEntry.js',
             exposes: {
-                './FavoriteRoutes': './src/routes'
+                './FavoriteRoutes': './src/routes',
+                './Utils': './src/utils',
             },
             shared: ['react', 'react-dom', 'react-router-dom'],
         }),
