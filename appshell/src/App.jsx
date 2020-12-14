@@ -1,19 +1,22 @@
-import React, { Suspense } from 'react';
-import {BrowserRouter, Route, Link, Switch} from 'react-router-dom';
+import React, {Suspense} from 'react';
+import {BrowserRouter, Link, Route, Switch} from 'react-router-dom';
 import {Header} from './Header';
 import {Footer} from './Footer';
 import './App.less';
-import utilTwo, { utilOne } from 'favorites/Utils';
+import utilTwo, {utilOne} from 'favorites/Utils';
+import {initGlobalStore} from "./store";
 
 const FavoriteRoutes = React.lazy(() => import("favorites/FavoriteRoutes"));
 const Photos = React.lazy(() => import("property/PropertyRoutes"));
 const Results = React.lazy(() => import("search/SearchRoutes"));
 
 function App() {
-  return (
+    initGlobalStore();
+    
+    return (
         <BrowserRouter>
             <div className="appshell-container">
-                <Header />
+                <Header/>
                 {utilOne()}
                 {utilTwo()}
                 <div>
@@ -26,27 +29,27 @@ function App() {
                 <Switch>
                     <Route path="/search">
                         <Suspense fallback="loading search...">
-                            <Results />
+                            <Results/>
                         </Suspense>
                     </Route>
                     <Route path="/photos">
                         <Suspense fallback="loading photos...">
-                            <Photos />
+                            <Photos/>
                         </Suspense>
                     </Route>
                     <Route path="/favorites">
                         <Suspense fallback="loading favorites...">
-                            <FavoriteRoutes />
+                            <FavoriteRoutes/>
                         </Suspense>
                     </Route>
                     <Route path="/cenas">cenas</Route>
                     <Route exact path="/">Dashboard</Route>
                 </Switch>
-                <Footer />
+                <Footer/>
             </div>
         </BrowserRouter>
 
-  );
+    );
 }
 
 export default App;
