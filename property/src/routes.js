@@ -3,7 +3,7 @@ import { Route, Link } from 'react-router-dom';
 import { Photos } from './Photos';
 
 export const routes = [
-    <Route key="property" path="/photos" component={Photos} />,
+    <Route key="property" path="/" component={Photos} />,
 ];
 
 export default function Routes() {

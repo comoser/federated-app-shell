@@ -3,7 +3,7 @@ import { Route, Link } from 'react-router-dom';
 import { Results } from './Results';
 
 export const routes = [
-    <Route key="search" path="/search" component={Results} />,
+    <Route key="search" path="/" component={Results} />,
 ];
 
 export default function Routes() {
