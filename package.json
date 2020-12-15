@@ -8,7 +8,8 @@
     "docker:pull": "docker pull scriptedalchemy/mf-dashboard",
     "docker:run": "docker run -p 3000:3000 --sig-proxy=true scriptedalchemy/mf-dashboard:latest",
     "docker:stop": "docker kill $(docker ps -q --filter ancestor=scriptedalchemy/mf-dashboard:latest)",
-    "docker:demo": "npm run docker:pull && npm run docker:run"
+    "docker:demo": "npm run docker:pull && npm run docker:run",
+    "clean": "(cd appshell && rm -rf node_modules && rm -rf dist); (cd property && rm -rf node_modules && rm -rf dist); (cd search && rm -rf node_modules && rm -rf dist); (cd favorites && rm -rf node_modules && rm -rf dist)"
   },
   "devDependencies": {
     "concurrently": "^5.1.0",

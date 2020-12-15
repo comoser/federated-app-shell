@@ -1,12 +1,15 @@
 import React from 'react';
 import { Route, Link } from 'react-router-dom';
+import configureI18n from './i18n';
 import { MyTrips } from './MyTrips';
 
 export const routes = [
-    <Route key="favorites" path="/favorites" component={MyTrips} />,
+    <Route key="favorites" path="/" component={MyTrips} />,
 ];
 
 export default function Routes() {
+    configureI18n();
+
     return (
         <>
             <p><Link to="/favorites/a">go to favorites a</Link></p>

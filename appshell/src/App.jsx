@@ -4,12 +4,15 @@ import {Header} from './Header';
 import {Footer} from './Footer';
 import './App.less';
 import utilTwo, { utilOne } from 'favorites/Utils';
+import { useTranslation } from 'react-i18next';
 
 const FavoriteRoutes = React.lazy(() => import("favorites/FavoriteRoutes"));
 const Photos = React.lazy(() => import("property/PropertyRoutes"));
 const Results = React.lazy(() => import("search/SearchRoutes"));
 
 function App() {
+  const { t } = useTranslation();
+
   return (
         <BrowserRouter>
             <div className="appshell-container">
@@ -40,7 +43,7 @@ function App() {
                         </Suspense>
                     </Route>
                     <Route path="/cenas">cenas</Route>
-                    <Route exact path="/">Dashboard</Route>
+                    <Route exact path="/">{t('dashboard')}</Route>
                 </Switch>
                 <Footer />
             </div>
