@@ -1,5 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { ModuleFederationPlugin } = require("webpack").container;
+const {ModuleFederationPlugin} = require("webpack").container;
 const pkg = require('./package.json');
 const devMode = true;
 const BuildHashPlugin = require('@module-federation/dashboard-plugin');
@@ -131,7 +131,7 @@ module.exports = {
             exposes: {
                 './PropertyRoutes': './src/routes'
             },
-            shared: ['react', 'react-dom', 'react-router-dom'],
+            shared: ['react', 'react-dom', 'react-router-dom', 'redux', 'react-redux', 'redux-micro-frontend', 'reselect'],
         }),
         new HtmlWebpackPlugin({
             hash: true,
@@ -142,10 +142,10 @@ module.exports = {
             filename: 'dashboard.json',
             dashboardURL: 'http://localhost:3000/api/update',
             metadata: {
-              source: {
-                url: 'https://github.com/module-federation/federation-dashboard/tree/master/dashboard-example/home'
-              },
-              remote: 'http://localhost:3002/remoteEntry.js'
+                source: {
+                    url: 'https://github.com/module-federation/federation-dashboard/tree/master/dashboard-example/home'
+                },
+                remote: 'http://localhost:3002/remoteEntry.js'
             },
             reportFunction: (data) => {
                 console.log('afterDone', data);

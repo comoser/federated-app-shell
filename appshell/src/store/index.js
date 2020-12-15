@@ -6,7 +6,7 @@ let globalStore = GlobalStore.Get();
 
 export const initStore = (store, name) => {
     const globalState = globalStore.GetGlobalState();
-    console.log(store)
+
     if (!globalState[name]) {
         globalStore.RegisterStore(name, store);
     }
