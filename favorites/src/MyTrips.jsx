@@ -1,17 +1,14 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import {useTranslation} from 'react-i18next';
 import './MyTrips.less';
 import {Decrement, Increment} from "./store/counter/actions";
 import {useDispatch, useSelector} from "react-redux";
 import {getCounter} from "./store/counter/selectors";
-import useGlobalStore from "../../appshell/src/hooks/useGlobalStore";
 
 export const MyTrips = () => {
-    const { t } = useTranslation();
+    const {t} = useTranslation();
     const dispatch = useDispatch();
     const counter = useSelector(getCounter);
-    const foo = useGlobalStore();
-    console.log(foo)
 
     const increment = () => {
         dispatch(Increment())
