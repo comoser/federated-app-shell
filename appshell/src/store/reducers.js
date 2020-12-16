@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import AppShellReducer from "./appshell/reducers";
+import authReducer from "./auth/reducers";
 
 export default combineReducers({
-    appShellReducer: AppShellReducer,
+    auth: authReducer,
 });

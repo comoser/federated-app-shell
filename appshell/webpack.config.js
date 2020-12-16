@@ -131,7 +131,17 @@ module.exports = {
                 property: 'property',
                 search: 'search'
             },
-            shared: ['react', 'react-dom', 'react-router-dom', 'redux', 'react-redux', 'redux-micro-frontend', 'reselect'],
+            shared: {
+                react: {eager: true},
+                'react-dom': {eager: true},
+                'react-router-dom': {eager: true},
+                'redux': {eager: true},
+                'react-redux': {eager: true},
+                'reselect': {eager: true},
+                'redux-micro-frontend': {
+                    singleton: true,
+                },
+            },
         }),
         new HtmlWebpackPlugin({
             hash: true,
