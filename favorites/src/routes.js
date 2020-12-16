@@ -4,9 +4,10 @@ import {Provider} from 'react-redux';
 import {MyTrips} from './MyTrips';
 import store from "./store";
 import {GlobalStore} from "redux-micro-frontend";
+import configureI18n from "./i18n";
 
 export const routes = [
-    <Route key="favorites" path="/favorites" component={MyTrips}/>,
+    <Route key="favorites" path="/" component={MyTrips}/>,
 ];
 
 /*
@@ -17,6 +18,8 @@ const globalStoreChanged = (localState) => {
 }
 */
 export default function Routes() {
+    configureI18n();
+
     const {url} = useRouteMatch();
 
     // Register the favorite store in the global store

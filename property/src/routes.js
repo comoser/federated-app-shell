@@ -6,7 +6,7 @@ import {Provider} from "react-redux";
 import {GlobalStore} from "redux-micro-frontend";
 
 export const routes = [
-    <Route key="property" path="/photos" component={Photos}/>,
+    <Route key="property" path="/" component={Photos} />,
 ];
 
 export default function Routes() {

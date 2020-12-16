@@ -9,7 +9,13 @@ module.exports = {
     cache: false,
 
     mode: 'development',
-    devtool: 'source-map',
+    devtool: 'eval-cheap-source-map',
+
+    watchOptions: {
+        aggregateTimeout: 600,
+        poll: 1000,
+        ignored: 'node_modules/**'
+    },
 
     optimization: {
         minimize: false,

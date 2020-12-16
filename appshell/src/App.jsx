@@ -7,12 +7,14 @@ import utilTwo, {utilOne} from 'favorites/Utils';
 import {Provider} from "react-redux";
 import {GlobalStore} from "redux-micro-frontend";
 import store from "./store";
+import {useTranslation} from 'react-i18next';
 
 const FavoriteRoutes = React.lazy(() => import("favorites/FavoriteRoutes"));
 const Photos = React.lazy(() => import("property/PropertyRoutes"));
 const Results = React.lazy(() => import("search/SearchRoutes"));
 
 function App() {
+    const {t} = useTranslation();
     GlobalStore.Get().RegisterStore("APP_SHELL_STORE", store);
 
     return (
@@ -47,7 +49,7 @@ function App() {
                         </Route>
 
                         <Route path="/cenas">cenas</Route>
-                        <Route exact path="/">Dashboard</Route>
+                        <Route exact path="/">{t('dashboard')}</Route>
                     </Switch>
                     <Footer/>
                 </div>
