@@ -3,3 +3,5 @@ dist
 __mocks__
 tests
 .DS_Store
+
+.idea
