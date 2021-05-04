@@ -4,11 +4,20 @@ import './MyTrips.less';
 import {Decrement, Increment} from "./store/counter/actions";
 import {useDispatch, useSelector} from "react-redux";
 import {getCounter} from "./store/counter/selectors";
+import { useGlobalDispatch, useGlobalSelector } from '../../appshell/src/hooks/useGlobalStore';
+import { getUserName } from '../../appshell/src/store/auth/selectors';
+import { UPDATE_USER } from '../../appshell/src/store/auth/reducers';
 
 export const MyTrips = () => {
     const {t} = useTranslation();
     const dispatch = useDispatch();
     const counter = useSelector(getCounter);
+    const user = useGlobalSelector(getUserName)
+    const globalDispatch = useGlobalDispatch();
+
+    const changeUser = () => {
+        globalDispatch({ type: UPDATE_USER, payload: { user: 'User from MyTrips'} });
+    }
 
     const increment = () => {
         dispatch(Increment())
@@ -22,6 +31,8 @@ export const MyTrips = () => {
             <button onClick={increment}>+</button>
             <button onClick={decrement}>-</button>
             <span>{counter}</span>
+            <div>User: {user}</div>
+            <button onClick={changeUser}>Change user from child MFE</button>
             <div className="my-trips">
                 <div className="trip">
                     <p>{t('favorite')}</p>
