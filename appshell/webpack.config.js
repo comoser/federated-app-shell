@@ -14,7 +14,7 @@ module.exports = {
     watchOptions: {
         aggregateTimeout: 600,
         poll: 1000,
-        ignored: 'node_modules/**'
+        ignored: 'node_modules/**',
     },
 
     optimization: {
@@ -135,18 +135,21 @@ module.exports = {
             remotes: {
                 favorites: 'favorites',
                 property: 'property',
-                search: 'search'
+                search: 'search',
             },
             shared: {
                 react: {eager: true},
                 'react-dom': {eager: true},
                 'react-router-dom': {eager: true},
-                'redux': {eager: true},
+                redux: {eager: true},
                 'react-redux': {eager: true},
-                'reselect': {eager: true},
+                reselect: {eager: true},
                 'redux-micro-frontend': {
                     singleton: true,
                 },
+            },
+            exposes: {
+                './protocol': './src/protocol',
             },
         }),
         new HtmlWebpackPlugin({
@@ -159,9 +162,10 @@ module.exports = {
             dashboardURL: 'http://localhost:3000/api/update',
             metadata: {
                 source: {
-                    url: 'https://github.com/module-federation/federation-dashboard/tree/master/dashboard-example/home'
+                    url:
+                        'https://github.com/module-federation/federation-dashboard/tree/master/dashboard-example/home',
                 },
-                remote: 'http://localhost:3001/remoteEntry.js'
+                remote: 'http://localhost:3001/remoteEntry.js',
             },
             reportFunction: (data) => {
                 console.log('afterDone', data);

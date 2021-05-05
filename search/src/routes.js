@@ -1,7 +1,7 @@
 import React from 'react';
 import {Route, Link} from 'react-router-dom';
 import {Results} from './Results';
-import {selectors as FavouritesSelectors} from '../../favorites/src/protocol';
+import {selectors as FavouritesSelectors} from 'favorites/protocol';
 
 export const routes = [<Route key="search" path="/" component={Results} />];
 

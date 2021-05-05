@@ -1,5 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const {ModuleFederationPlugin} = require("webpack").container;
+const {ModuleFederationPlugin} = require('webpack').container;
 const autoprefixer = require('autoprefixer');
 const pkg = require('./package.json');
 const BuildHashPlugin = require('@module-federation/dashboard-plugin');
@@ -14,7 +14,7 @@ module.exports = {
     watchOptions: {
         aggregateTimeout: 600,
         poll: 1000,
-        ignored: 'node_modules/**'
+        ignored: 'node_modules/**',
     },
 
     optimization: {
@@ -27,7 +27,7 @@ module.exports = {
 
     resolve: {
         extensions: ['.tsx', '.jsx', '.js', '.json', '.less', '.css'],
-        alias: {"url": false}
+        alias: {url: false},
     },
 
     module: {
@@ -37,7 +37,7 @@ module.exports = {
                 loader: 'babel-loader',
                 options: {
                     envName: 'client',
-                    plugins: ['@babel/plugin-syntax-dynamic-import']
+                    plugins: ['@babel/plugin-syntax-dynamic-import'],
                 },
             },
             {
@@ -96,23 +96,32 @@ module.exports = {
             library: {type: 'var', name: 'search'},
             filename: 'remoteEntry.js',
             exposes: {
-                './SearchRoutes': './src/routes'
+                './SearchRoutes': './src/routes',
             },
-            shared: ['react', 'react-dom', 'react-router-dom', 'redux', 'react-redux', 'redux-micro-frontend', 'reselect'],
+            shared: [
+                'react',
+                'react-dom',
+                'react-router-dom',
+                'redux',
+                'react-redux',
+                'redux-micro-frontend',
+                'reselect',
+            ],
         }),
         new HtmlWebpackPlugin({
             hash: true,
             title: `${pkg.name} - ${pkg.description}`,
-            template: './public/index.html'
+            template: './public/index.html',
         }),
         new BuildHashPlugin({
             filename: 'dashboard.json',
             dashboardURL: 'http://localhost:3000/api/update',
             metadata: {
                 source: {
-                    url: 'https://github.com/module-federation/federation-dashboard/tree/master/dashboard-example/home'
+                    url:
+                        'https://github.com/module-federation/federation-dashboard/tree/master/dashboard-example/home',
                 },
-                remote: 'http://localhost:3003/remoteEntry.js'
+                remote: 'http://localhost:3003/remoteEntry.js',
             },
             reportFunction: (data) => {
                 console.log('afterDone', data);

@@ -97,6 +97,7 @@ module.exports = {
             exposes: {
                 './FavoriteRoutes': './src/routes',
                 './Utils': './src/utils',
+                './protocol': './src/protocol'
             },
             shared: ['react', 'react-dom', 'react-router-dom', 'redux', 'react-redux', 'redux-micro-frontend', 'reselect'],
         }),

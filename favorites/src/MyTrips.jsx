@@ -4,7 +4,7 @@ import './MyTrips.less';
 import {Decrement, Increment} from "./store/counter/actions";
 import {useDispatch, useSelector} from "react-redux";
 import {getCounter} from "./store/counter/selectors";
-import * as GlobalProtocol from '../../appshell/src/protocol';
+import * as GlobalProtocol from 'appshell/protocol';
 import {  } from '../../appshell/src/hooks/useGlobalStore';
 
 export const MyTrips = () => {
