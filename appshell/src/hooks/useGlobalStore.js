@@ -37,4 +37,22 @@ export const useGlobalDispatch = (STORE = 'APP_SHELL_STORE') => {
     return (action) => GlobalStore.Get().DispatchAction(STORE, action);
 };
 
+export const createSelectorProtocol = (obj, store) => {
+    return Object.keys(obj).reduce((protocol, key) => {
+        return {
+            ...protocol,
+            [key]: () => useGlobalSelector(obj[key], store),
+        };
+    }, {});
+};
+
+export const createDispatcherProtocol = (obj, store) => {
+    return Object.keys(obj).reduce((protocol, key) => {
+        return {
+            ...protocol,
+            [key]: (...args) => useGlobalDispatch(store)(obj[key](...args)),
+        };
+    }, {});
+};
+
 export default useGlobalStore;

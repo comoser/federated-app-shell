@@ -4,19 +4,17 @@ import './MyTrips.less';
 import {Decrement, Increment} from "./store/counter/actions";
 import {useDispatch, useSelector} from "react-redux";
 import {getCounter} from "./store/counter/selectors";
-import { useGlobalDispatch, useGlobalSelector } from '../../appshell/src/hooks/useGlobalStore';
-import { getUserName } from '../../appshell/src/store/auth/selectors';
-import { UPDATE_USER } from '../../appshell/src/store/auth/reducers';
+import * as GlobalProtocol from '../../appshell/src/protocol';
+import {  } from '../../appshell/src/hooks/useGlobalStore';
 
 export const MyTrips = () => {
     const {t} = useTranslation();
     const dispatch = useDispatch();
     const counter = useSelector(getCounter);
-    const user = useGlobalSelector(getUserName)
-    const globalDispatch = useGlobalDispatch();
+    const user = GlobalProtocol.selectors.useUserName()
 
     const changeUser = () => {
-        globalDispatch({ type: UPDATE_USER, payload: { user: 'User from MyTrips'} });
+        GlobalProtocol.dispatchers.updateUserName('Username from MyTrips')
     }
 
     const increment = () => {
