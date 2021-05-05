@@ -2,9 +2,9 @@ import React from 'react';
 import {Link, Route, useRouteMatch} from 'react-router-dom';
 import {Provider} from 'react-redux';
 import {MyTrips} from './MyTrips';
-import store from "./store";
-import {GlobalStore} from "redux-micro-frontend";
 import configureI18n from "./i18n";
+import store from './store';
+import './protocol';
 
 export const routes = [
     <Route key="favorites" path="/" component={MyTrips}/>,
@@ -21,12 +21,6 @@ export default function Routes() {
     configureI18n();
 
     const {url} = useRouteMatch();
-
-    // Register the favorite store in the global store
-    GlobalStore.Get().RegisterStore("FAVORITES_STORE", store);
-
-    // You can listen to changes on a store by through subscribe
-    // GlobalStore.Get().Subscribe("APP_SHELL_STORE", globalStoreChanged);
 
     return (
         <Provider store={store}>
